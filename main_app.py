@@ -28,6 +28,7 @@ def login_required(func):
 
 
 def topic_completion_percent():
+    completed_percentages = {}
     try:
         client_name, settings, tracking, rank = userinformation()
 
@@ -39,8 +40,6 @@ def topic_completion_percent():
         if tracking == None:
             tracking = []
             flash("tracking is none")
-
-        completed_percentages = {}
         
         for each_topic in TOPIC_DICT:
             total = 0
@@ -62,7 +61,6 @@ def topic_completion_percent():
         for each_topic in TOPIC_DICT:
             total = 0
             total_complete = 0
-       
             completed_percentages[each_topic] = 0.0
 
         return completed_percentages

@@ -7,7 +7,7 @@
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% for category, flashmsg in messages %}
 
-        <div  {% if category=='error' %}
+        <div {% if category=='error' %}
                 class="alert alert-dismissible alert-danger"
               {% elif category=='success' %}
                 class="alert alert-dismissible alert-success"
@@ -21,49 +21,6 @@
         </div>
     {% endfor %}
   {% endwith %}
-
-
-  <div role="tabpanel" >
-
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#basics" aria-controls="basics" role="tab" data-toggle="tab">Basics</a></li>
-      <li role="presentation"><a href="#wdev" aria-controls="pygame" role="tab" data-toggle="tab">PyGame</a></li>
-      <li role="presentation"><a href="#dan" aria-controls="dan" role="tab" data-toggle="tab">PyOpenGL</a></li>
-
-    </ul>
-
-      <!-- Tab panes -->
-    <div class="tab-content" style="margin: 10px;">
-      <div role="tabpanel" class="tab-pane fade in active" id="basics">
-        <ul>
-           {% for t in TOPIC_DICT["Basics"] %}
-             <li><a href="{{t[1]}}">{{t[0]}}</a></li>
-           {% endfor %}
-        </ul>
-
-      <div role="tabpanel" class="tab-pane fade" id="pygame">
-        <ul>
-           {% for t in TOPIC_DICT["PyGame"] %}
-             <li><a href="{{t[1]}}">{{t[0]}}</a></li>
-           {% endfor %}
-        </ul>
-      </div>
-      <div role="tabpanel" class="tab-pane fade" id="dan">
-        <ul>
-        {% for t in TOPIC_DICT["PyOpenGL"] %}
-             <li><a href="{{t[1]}}">{{t[0]}}</a></li>
-           {% endfor %}
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
   <h1>SENTINEL</h1>
 
@@ -83,25 +40,25 @@
   </ul>
 
   <!-- Begin Tab panes -->
-  <div class="tab-content">
+    <div class="tab-content">
 
 
-  <!-- BEGIN OVERVIEW TAB -->
-    <div role="tabpanel" class="tab-pane fade" id="home">
-		<br>
-		<p>Welcome to your dashboard. Here, you can track your progress, set goals, and figure out where to go next.</p>
-		<br>
-		<div class="panel panel-default">
-		  <div class="panel-body">
-		  <p>Recent progress: <strong>Basics</strong></p>
-			<div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Basics']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Basics']}}%;">
-				Basics Progress:  {{completed_percentages['Basics']}}%
-			</div>
-		  </div>
-		  <div class="panel-footer">
+    <!-- BEGIN OVERVIEW TAB -->
+      <div role="tabpanel" class="tab-pane fade" id="home">
+      <br>
+      <p>Welcome to your dashboard. Here, you can track your progress, set goals, and figure out where to go next.</p>
+      <br>
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <p>Recent progress: <strong>Basics</strong></p>
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Basics']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Basics']}}%;">
+          Basics Progress:  {{completed_percentages['Basics']}}%
+        </div>
+        </div>
+        <div class="panel-footer">
 
-		  Going through all of the basics well best equip you to handle the largest array of problems that you may face, as well as helping you to pick up new TOPIC_DICT along the way.</div>
-		</div>
+        Going through all of the basics well best equip you to handle the largest array of problems that you may face, as well as helping you to pick up new TOPIC_DICT along the way.</div>
+      </div>
 
 
 		<div class="panel panel-default">
@@ -144,7 +101,7 @@
 
 <!-- BEGIN BASICS TAB -->
 
-    <div role="tabpanel"class="tab-pane fade in active" id="basics">
+    <div role="tabpanel" class="tab-pane fade in active" id="basics">
 		<br>
 		<div class="progress">
 			<div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Basics']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Basics']}}%;">
@@ -304,12 +261,6 @@
 	</div>
 <!-- END GAME DEV TAB -->
 
-
-
-
-
-
-
 <!-- BEGIN WEB DEV TAB -->
 	<div role="tabpanel" class="tab-pane fade" id="webdev">
 
@@ -317,9 +268,9 @@
 		<p><strong><a href="https://www.djangoproject.com/" target="blank">Django</a></strong> and <strong><a href="http://flask.pocoo.org/" target="blank">Flask</a></strong> are both very popular Web Frameworks for the Python Programming language. </p>
 		<br>
 
-		<button class="btn btn-primary" data-toggle="collapse" href="#djangovsflask" aria-expanded="false" aria-controls="djangovsflask">
+    <a href="#djangovsflask"><button class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="djangovsflask">
 		  Flask vs Django? Which should you choose?
-		</button>
+    </button></a>
 		<div class="collapse" id="djangovsflask">
 		  <div class="well">
 			<p>Flask and Django solve the same problems. Flask is a bit looser and more open-ended. It allows for you to both do things simply, and also do things incorrectly.</p>
@@ -329,9 +280,9 @@
 		</div>
 
 
-		<button class="btn btn-primary" data-toggle="collapse" href="#pywebexamps" aria-expanded="false" aria-controls="pywebexamps">
+		<a href="#pywebexamps"><button class="btn btn-primary" data-toggle="collapse"  aria-expanded="false" aria-controls="pywebexamps">
 		  Examples of Django and Flask Websites
-		</button>
+    </button></a>
 		<div class="collapse" id="pywebexamps">
 		  <div class="well">
 			<p><strong>Flask Websites:</strong></p>
@@ -347,11 +298,6 @@
 			</ul>
 		  </div>
 		</div>
-
-
-
-
-
 
 
 		<br>
@@ -1135,102 +1081,102 @@
 			<li role="presentation"><a href="#PyQt" aria-controls="PyQt" role="tab" data-toggle="tab">PyQt</a></li>
 		  </ul>
 
-		  <!-- Tab panes -->
-		  <div class="tab-content">
-			<div role="tabpanel" class="tab-pane fade in active" id="tkinter">
-								<br>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Tkinter']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Tkinter']}}%;">
-										{{completed_percentages['Tkinter']}}%
-									</div>
-								</div>
-								<br>
+        <!-- Tab panes -->
+        <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="tkinter">
+                  <br>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Tkinter']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Tkinter']}}%;">
+                      {{completed_percentages['Tkinter']}}%
+                    </div>
+                  </div>
+                  <br>
 
-			<img class="img-responsive" src="{{ url_for('static', filename='images/tkinter-gui-tutorial-with-python-3.png') }}"/>
-			<br><br>
-			<div class="row">
-				<div class="col-md-5"><div class="list-group">
-					{%for infos in TOPIC_DICT['Tkinter']%}
-						{% if infos[1] in tracking %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
-						{% else %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
-						{% endif %}
-					{%endfor%}
-
-
-
-			</div></div>
-			</div>
+        <img class="img-responsive" src="{{ url_for('static', filename='images/tkinter-gui-tutorial-with-python-3.png') }}"/>
+        <br><br>
+        <div class="row">
+          <div class="col-md-5"><div class="list-group">
+            {%for infos in TOPIC_DICT['Tkinter']%}
+              {% if infos[1] in tracking %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
+              {% else %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
+              {% endif %}
+            {%endfor%}
 
 
-			</div>
-			<div role="tabpanel" class="tab-pane fade" id="kivy2">
-								<br>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Kivy']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Kivy']}}%;">
-										{{completed_percentages['Kivy']}}%
-									</div>
-								</div>
-								<br>
-			<img class="img-responsive" src="{{ url_for('static', filename='images/kivy/kivy-draw-application-tutorial.png') }}"/>
-			<p></p>
-			<br><br>
 
-			<div class="row">
-				<div class="col-md-5"><div class="list-group">
-
-					{%for infos in TOPIC_DICT['Kivy']%}
-						{% if infos[1] in tracking %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
-						{% else %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
-						{% endif %}
-					{%endfor%}
+        </div></div>
+        </div>
 
 
-			</div></div>
-			</div>
-			</div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="kivy2">
+                  <br>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['Kivy']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['Kivy']}}%;">
+                      {{completed_percentages['Kivy']}}%
+                    </div>
+                  </div>
+                  <br>
+        <img class="img-responsive" src="{{ url_for('static', filename='images/kivy/kivy-draw-application-tutorial.png') }}"/>
+        <p></p>
+        <br><br>
 
-			<div role="tabpanel" class="tab-pane fade" id="PyQt">
-								<br>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['PyQt']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['PyQt']}}%;">
-										{{completed_percentages['PyQt']}}%
-									</div>
-								</div>
-								<br>
-			<!--<img class="img-responsive" src="{{ url_for('static', filename='images/supercomputer-raspberry-pi-tutorials.jpg') }}"/>-->
-			<p>PyQT series is not here yet, check back soon.</p>
-			<br><br>
+        <div class="row">
+          <div class="col-md-5"><div class="list-group">
 
-			<div class="row">
-				<div class="col-md-5"><div class="list-group">
-
-				<!--
-					{%for infos in TOPIC_DICT['PyQt']%}
-						{% if infos[1] in tracking %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
-						{% else %}
-							<a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
-						{% endif %}
-					{%endfor%}-->
+            {%for infos in TOPIC_DICT['Kivy']%}
+              {% if infos[1] in tracking %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
+              {% else %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
+              {% endif %}
+            {%endfor%}
 
 
-			</div></div>
-			</div>
-			</div>
-		  </div>
-		</div>
-	</div>
-<!-- END GUI TAB -->
+        </div></div>
+        </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="PyQt">
+                  <br>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{completed_percentages['PyQt']}}" aria-valuemin="0" aria-valuemax="100" style="width: {{completed_percentages['PyQt']}}%;">
+                      {{completed_percentages['PyQt']}}%
+                    </div>
+                  </div>
+                  <br>
+        <!--<img class="img-responsive" src="{{ url_for('static', filename='images/supercomputer-raspberry-pi-tutorials.jpg') }}"/>-->
+        <p>PyQT series is not here yet, check back soon.</p>
+        <br><br>
+
+        <div class="row">
+          <div class="col-md-5"><div class="list-group">
+
+          <!--
+            {%for infos in TOPIC_DICT['PyQt']%}
+              {% if infos[1] in tracking %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-ok"></span> {{infos[0]}}</a>
+              {% else %}
+                <a href="{{infos[1]}}" class="list-group-item list-group-item-warning">{{infos[0]}}</a>
+              {% endif %}
+            {%endfor%}-->
 
 
+        </div></div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <!-- END GUI TAB -->
+
+
+
+    </div>
 
   </div>
-
-</div>
 
 </div>
 
