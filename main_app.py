@@ -31,12 +31,10 @@ def topic_completion_percent():
     completed_percentages = {}
     try:
         client_name, settings, tracking, rank = userinformation()
-
         try:
             tracking = tracking.split(",")
         except:
             pass
-
         if tracking == None:
             tracking = []
             flash("tracking is none")
@@ -50,22 +48,16 @@ def topic_completion_percent():
                 for done in tracking:
                     if done == each[1]:
                         total_complete += 1
-
             percent_complete = int(((total_complete*100)/total))
             completed_percentages[each_topic] = percent_complete
-
-
-        return completed_percentages
     except:
         print(" -!- COMPLETION PERCENT PROBLEM!!!")
         for each_topic in TOPIC_DICT:
             total = 0
             total_complete = 0
             completed_percentages[each_topic] = 0.0
-
-        return completed_percentages
-
-    pass
+    print('completed_percentages:', completed_percentages)
+    return completed_percentages
 
 
 @app.route('/')
